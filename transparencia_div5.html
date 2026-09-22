@@ -7,26 +7,150 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
-*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Inter',system-ui,sans-serif;background:#f0f2f5;color:#1a1a2e;min-height:100vh}.top-bar{background:#002b5c;color:#fff;padding:14px 20px;display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:10;flex-wrap:wrap}.top-bar .logo{width:36px;height:36px;border:2px solid #fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:11px;flex-shrink:0}.top-bar .tit{font-size:14px;font-weight:600}.top-bar .sub{font-size:11px;opacity:.7;margin-top:2px}.top-bar .spacer{flex:1}.back-btn{display:inline-flex;align-items:center;gap:6px;color:#fff;text-decoration:none;font-size:13px;font-weight:500;opacity:.85;cursor:pointer}.btn-group{display:flex;gap:8px;flex-wrap:wrap}.action-btn{border:none;padding:8px 14px;border-radius:8px;font-size:12px;font-weight:700;font-family:inherit;cursor:pointer;display:inline-flex;align-items:center;gap:6px;transition:all .15s}.action-btn:hover{transform:scale(1.03)}.action-btn svg{width:15px;height:15px}.btn-update{background:#f0a500;color:#002b5c}.btn-qr{background:#fff;color:#002b5c}.station-hdr{background:#fff;padding:20px;border-bottom:1px solid #ddd}.station-name{font-size:22px;font-weight:700;color:#002b5c}.station-meta{font-size:13px;color:#555;margin-top:4px}.vig{display:inline-block;margin-top:8px;background:#e8f4e8;color:#1a6b1a;font-size:12px;font-weight:600;padding:4px 10px;border-radius:4px}.content{padding:16px;max-width:520px;margin:0 auto}.fuel-card{background:#fff;border-radius:10px;overflow:hidden;margin-bottom:16px;box-shadow:0 1px 4px rgba(0,0,0,.08)}.fuel-hdr{padding:14px 16px;color:#fff;display:flex;justify-content:space-between;align-items:center}.fuel-nm{font-size:15px;font-weight:600}.fuel-pr{font-size:24px;font-weight:700}.fuel-body{padding:14px 16px 16px}.bar-c{display:flex;height:10px;border-radius:5px;overflow:hidden;margin-bottom:6px}.bar-s{height:100%}.bar-l{display:flex;justify-content:space-between;font-size:11px;color:#666;margin-bottom:14px;font-weight:500}table{width:100%;border-collapse:collapse;font-size:13px}tr td{padding:7px 0;border-bottom:1px solid #f0f0f0}tr:last-child td{border-bottom:none}.v{text-align:right;font-variant-numeric:tabular-nums;font-weight:500;white-space:nowrap}.sb{font-size:10px;color:#888}.rb td{color:#002b5c;font-weight:600}.rti td{font-weight:600;border-top:2px solid #ddd;padding-top:10px;color:#8b0000}.rf td{font-weight:700;font-size:15px;padding-top:10px;color:#002b5c}.legal{background:#fafafa;border-top:1px solid #eee;padding:14px 20px;font-size:10px;color:#999;line-height:1.5;text-align:center}.footer{text-align:center;padding:20px;font-size:11px;color:#888}.footer a{color:#002b5c;text-decoration:none}.landing{max-width:520px;margin:0 auto;padding:20px}.div-badge{display:inline-block;background:#002b5c;color:#fff;font-size:13px;font-weight:700;padding:8px 16px;border-radius:8px;margin-bottom:16px}.search-box{position:relative;margin-bottom:20px}.search-box input{width:100%;padding:14px 16px 14px 44px;border:2px solid #ddd;border-radius:10px;font-size:15px;font-family:inherit;outline:none}.search-box input:focus{border-color:#002b5c}.search-box svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:20px;height:20px;color:#999}.slist{list-style:none}.slist li{background:#fff;margin-bottom:8px;border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.06)}.slist li a{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;text-decoration:none;color:#1a1a2e}.slist li a:hover{background:#f5f7fa}.slist .sn{font-weight:600;font-size:14px;color:#002b5c}.slist .sc{font-size:12px;color:#888;margin-top:2px}.slist .arrow{color:#ccc;font-size:18px}#fileInput{display:none}.qr-overlay{display:none;position:fixed;inset:0;background:#fff;z-index:1000;overflow-y:auto}.qr-overlay.open{display:block}.qr-toolbar{position:sticky;top:0;background:#002b5c;color:#fff;padding:14px 20px;display:flex;align-items:center;gap:12px;z-index:10}.qr-toolbar .spacer{flex:1}.qr-toolbar button{background:#fff;color:#002b5c;border:none;padding:10px 20px;border-radius:8px;font-size:13px;font-weight:700;font-family:inherit;cursor:pointer}.qr-toolbar .close-btn{background:transparent;color:#fff;font-size:24px;padding:4px 10px}.qr-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;padding:24px;max-width:900px;margin:0 auto}.qr-item{text-align:center;padding:16px;border:1px solid #eee;border-radius:10px}.qr-item canvas{display:block;margin:0 auto 10px}.qr-item .qr-name{font-size:14px;font-weight:700;color:#002b5c}.qr-item .qr-code{font-size:11px;color:#888;margin-top:2px}@media print{.qr-toolbar{display:none!important}.qr-grid{gap:12px;padding:12px}.qr-item{border:1px solid #ddd;padding:10px}body>*:not(.qr-overlay){display:none!important}.qr-overlay{position:static!important}}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',system-ui,sans-serif;background:#f0f2f5;min-height:100vh;-webkit-font-smoothing:antialiased}
+.header{background:#002b5c;color:#fff;padding:20px;text-align:center}
+.header .logo{font-size:28px;font-weight:900;letter-spacing:.08em;margin-bottom:6px}
+.header .hsubtitle{font-size:13px;font-weight:400;opacity:.85;letter-spacing:.02em}
+.header .hdate{font-size:11px;opacity:.6;margin-top:4px}
+.header .spacer{flex:1}
+.header-wrap{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap}
+.btn-group{display:flex;gap:8px;flex-wrap:wrap}
+.action-btn{border:none;padding:7px 12px;border-radius:8px;font-size:11px;font-weight:700;font-family:inherit;cursor:pointer;display:inline-flex;align-items:center;gap:5px;transition:all .15s}
+.action-btn:hover{transform:scale(1.03)}
+.btn-update{background:#f0a500;color:#002b5c}
+.btn-qr{background:rgba(255,255,255,.2);color:#fff}
+.station-bar{background:#fff;padding:14px 20px;border-bottom:2px solid #002b5c;text-align:center}
+.station-bar .sname{font-size:17px;font-weight:700;color:#002b5c}
+.station-bar .smeta{font-size:12px;color:#888;margin-top:2px}
+.back-btn{display:inline-flex;align-items:center;gap:6px;color:#fff;text-decoration:none;font-size:12px;font-weight:500;opacity:.8;cursor:pointer;position:absolute;left:16px;top:18px}
+.cards{padding:16px;max-width:440px;margin:0 auto;display:flex;flex-direction:column;gap:16px}
+.fuel-card{display:flex;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.1)}
+.fuel-sidebar{width:56px;flex-shrink:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.fuel-sidebar .fuel-label{writing-mode:vertical-rl;text-orientation:mixed;transform:rotate(180deg);font-size:15px;font-weight:900;color:#fff;letter-spacing:.06em;text-transform:uppercase}
+.fuel-content{flex:1;background:#fff;padding:14px 16px;display:flex;flex-direction:column;gap:8px}
+.row-pvp{display:flex;flex-direction:column;gap:2px}
+.row-pvp .label{font-size:10px;font-weight:700;color:#555;text-transform:uppercase;letter-spacing:.04em}
+.row-pvp .value-box{padding:10px 14px;border-radius:6px;text-align:center}
+.row-pvp .value{font-size:26px;font-weight:800;font-variant-numeric:tabular-nums}
+.detail-grid{display:grid;grid-template-columns:1fr auto;gap:0;font-size:12px}
+.detail-grid .dl{padding:5px 0;border-bottom:1px solid #f0f0f0;color:#444}
+.detail-grid .dv{padding:5px 0;border-bottom:1px solid #f0f0f0;text-align:right;font-weight:600;font-variant-numeric:tabular-nums;color:#333}
+.detail-grid .dl.sub{color:#888;padding-left:8px;font-size:11px}
+.detail-grid .dl.total-imp{font-weight:700;border-top:2px solid #ddd;padding-top:8px;color:#8b0000}
+.detail-grid .dv.total-imp{font-weight:700;border-top:2px solid #ddd;padding-top:8px;color:#8b0000}
+.fuel-super .fuel-sidebar{background:linear-gradient(180deg,#1a7a6a,#23a88a)}
+.fuel-super .row-pvp .value-box{background:#e6f5f0;color:#1a7a6a}
+.fuel-infinia .fuel-sidebar{background:linear-gradient(180deg,#0d3b66,#1a6aaa)}
+.fuel-infinia .row-pvp .value-box{background:#e0eef8;color:#0d3b66}
+.fuel-d500 .fuel-sidebar{background:linear-gradient(180deg,#1b3a5c,#2c6faa)}
+.fuel-d500 .row-pvp .value-box{background:#e0eaf4;color:#1b3a5c}
+.fuel-idiesel .fuel-sidebar{background:linear-gradient(180deg,#4a5d1e,#6d8a2e)}
+.fuel-idiesel .row-pvp .value-box{background:#eef3e0;color:#4a5d1e}
+.legal{text-align:center;padding:16px 20px;font-size:9px;color:#aaa;line-height:1.5}
+.footer{text-align:center;padding:10px 20px 24px;font-size:11px;color:#888}
+.footer a{color:#002b5c;text-decoration:none;font-weight:600}
+/* Landing */
+.landing{max-width:440px;margin:0 auto;padding:20px}
+.div-badge{display:inline-block;background:#002b5c;color:#fff;font-size:13px;font-weight:700;padding:8px 16px;border-radius:8px;margin-bottom:16px}
+.search-box{position:relative;margin-bottom:16px}
+.search-box input{width:100%;padding:14px 16px 14px 44px;border:2px solid #ddd;border-radius:10px;font-size:15px;font-family:inherit;outline:none}
+.search-box input:focus{border-color:#002b5c}
+.search-box svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:20px;height:20px;color:#999}
+.slist{list-style:none}
+.slist li{background:#fff;margin-bottom:8px;border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.slist li a{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;text-decoration:none;color:#1a1a2e}
+.slist li a:hover{background:#f5f7fa}
+.slist .sn{font-weight:600;font-size:14px;color:#002b5c}
+.slist .sc{font-size:12px;color:#888;margin-top:2px}
+.slist .arrow{color:#ccc;font-size:18px}
+#fileInput{display:none}
+.qr-overlay{display:none;position:fixed;inset:0;background:#fff;z-index:1000;overflow-y:auto}
+.qr-overlay.open{display:block}
+.qr-toolbar{position:sticky;top:0;background:#002b5c;color:#fff;padding:14px 20px;display:flex;align-items:center;gap:12px;z-index:10}
+.qr-toolbar .spacer{flex:1}
+.qr-toolbar button{background:#fff;color:#002b5c;border:none;padding:10px 20px;border-radius:8px;font-size:13px;font-weight:700;font-family:inherit;cursor:pointer}
+.qr-toolbar .close-btn{background:transparent;color:#fff;font-size:24px;padding:4px 10px}
+.qr-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;padding:24px;max-width:900px;margin:0 auto}
+.qr-item{text-align:center;padding:16px;border:1px solid #eee;border-radius:10px}
+.qr-item canvas{display:block;margin:0 auto 10px}
+.qr-item .qr-name{font-size:14px;font-weight:700;color:#002b5c}
+.qr-item .qr-code{font-size:11px;color:#888;margin-top:2px}
+.status-banner{max-width:440px;margin:12px auto 0;padding:14px 18px;border-radius:10px;font-size:13px;line-height:1.5}
+@media print{.qr-toolbar{display:none!important}.qr-grid{gap:12px;padding:12px}.qr-item{border:1px solid #ddd;padding:10px}body>*:not(.qr-overlay){display:none!important}.qr-overlay{position:static!important}}
 </style>
 </head>
 <body>
-<div class="top-bar" id="topbar"><div class="logo">ACA</div><div><div class="tit">Automovil Club Argentino</div><div class="sub">Transparencia Fiscal — Divisional 5 · Patagonia Norte</div></div><div class="spacer"></div><div class="btn-group"><button class="action-btn btn-update" onclick="document.getElementById('fileInput').click()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 12a9 9 0 0 1-15.36 6.36"/><path d="M3 12a9 9 0 0 1 15.36-6.36"/><path d="m15 6 3-3 3 3"/><path d="m6 18-3 3-3-3"/></svg>Actualizar Precios</button><button class="action-btn btn-qr" onclick="openQRPanel()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="3" height="3"/><path d="M21 14h-3v3"/><path d="M21 21h-3v-3"/></svg>Generar QR</button></div></div>
-<input type="file" id="fileInput" accept=".xls,.xlsx"><div id="statusArea"></div><div id="app"></div>
+<div class="header" id="topbar" style="position:relative">
+  <div class="logo">ACA</div>
+  <div class="hsubtitle">Regimen de transparencia fiscal al consumidor</div>
+  <div class="hdate" id="fechaConsulta"></div>
+  <div style="margin-top:10px" class="btn-group" id="adminBtns">
+    <button class="action-btn btn-update" onclick="document.getElementById('fileInput').click()">Actualizar Precios</button>
+    <button class="action-btn btn-qr" onclick="openQRPanel()">Generar QR</button>
+  </div>
+</div>
+<input type="file" id="fileInput" accept=".xls,.xlsx">
+<div id="statusArea"></div>
+<div id="app"></div>
 <div class="qr-overlay" id="qrOverlay"><div class="qr-toolbar"><button class="close-btn" onclick="closeQRPanel()">&#x2715;</button><div><div style="font-weight:700">QR — Divisional 5 · Patagonia Norte</div><div style="font-size:11px;opacity:.7" id="qrBaseInfo"></div></div><div class="spacer"></div><button onclick="window.print()">Imprimir</button></div><div class="qr-grid" id="qrGrid"></div></div>
 <script>
 var THIS_DIV=5;var D=[{"c":3255,"n":"Caleu Caleu","d":5,"f":{"s":[1478.06,0.0,20.54,0.21,310.39,330.94,1809.0],"in":[1692.94,0.0,20.54,0.21,355.52,376.06,2069.0],"d5":[1654.72,159.27,33.52,0.21,347.49,540.28,2195.0],"id":[1953.83,157.67,33.19,0.21,410.3,601.17,2555.0]}},{"c":3468,"n":"Choele Choel","d":5,"f":{"s":[1478.06,0.0,20.54,0.21,310.39,330.94,1809.0],"in":[1692.94,0.0,20.54,0.21,355.52,376.06,2069.0],"d5":[1654.72,159.27,33.52,0.21,347.49,540.28,2195.0],"id":[1957.14,157.67,33.19,0.21,411.0,601.86,2559.0]}},{"c":3492,"n":"Chos Malal","d":5,"f":{"s":[1445.01,0.0,20.54,0.21,303.45,323.99,1769.0],"in":[1651.62,0.0,20.54,0.21,346.84,367.38,2019.0],"d5":[1633.23,159.27,33.52,0.21,342.98,535.77,2169.0],"id":[1937.3,157.67,33.19,0.21,406.83,597.7,2535.0]}},{"c":3531,"n":"Cipolletti","d":5,"f":{"s":[1478.06,0.0,20.54,0.21,310.39,330.94,1809.0],"in":[1692.94,0.0,20.54,0.21,355.52,376.06,2069.0],"d5":[1654.72,159.27,33.52,0.21,347.49,540.28,2195.0],"id":[1957.14,157.67,33.19,0.21,411.0,601.86,2559.0]}},{"c":3611,"n":"Colonia 25 de Mayo","d":5,"f":{"s":[1537.57,0.0,20.54,0.21,322.89,343.43,1881.0],"in":[1761.53,0.0,20.54,0.21,369.92,390.47,2152.0],"d5":[1654.72,159.27,33.52,0.21,347.49,540.28,2195.0],"id":[1957.14,157.67,33.19,0.21,411.0,601.86,2559.0]}},{"c":6092,"n":"Los Menucos","d":5,"f":{"s":[1563.19,0.0,20.54,0.21,328.27,348.81,1912.0],"in":[1756.58,0.0,20.54,0.21,368.88,389.42,2146.0],"d5":[1662.98,159.27,33.52,0.21,349.23,542.02,2205.0],"id":[1935.65,157.67,33.19,0.21,406.49,597.35,2533.0]}},{"c":4502,"n":"El Bolsón","d":5,"f":{"s":[1524.34,0.0,20.54,0.21,320.11,340.66,1865.0],"in":[1759.06,0.0,20.54,0.21,369.4,389.94,2149.0],"d5":[1629.93,159.27,33.52,0.21,342.28,535.07,2165.0],"id":[1871.19,157.67,33.19,0.21,392.95,583.81,2455.0]}},{"c":9482,"n":"Villa La Angostura","d":5,"f":{"s":[1511.12,0.0,20.54,0.21,317.34,337.88,1849.0],"in":[1717.73,0.0,20.54,0.21,360.72,381.27,2099.0],"d5":[1674.55,159.27,33.52,0.21,351.66,544.45,2219.0],"id":[1970.36,157.67,33.19,0.21,413.78,604.64,2575.0]}},{"c":5967,"n":"Lago Mascardi","d":5,"f":{"s":[1578.89,0.0,20.54,0.21,331.57,352.11,1931.0],"in":[1801.2,0.0,20.54,0.21,378.25,398.8,2200.0],"d5":[1646.45,159.27,33.52,0.21,345.76,538.55,2185.0],"id":[1973.67,157.67,33.19,0.21,414.47,605.33,2579.0]}},{"c":8605,"n":"Santa Rosa PA","d":5,"f":{"s":[1436.77,0.0,20.51,0.21,301.72,322.23,1759.0],"in":[1676.71,0.0,20.19,0.21,352.11,372.29,2049.0],"d5":[1658.4,147.32,31.01,0.21,348.26,526.6,2185.0],"id":[1806.67,142.86,30.07,0.21,379.4,552.33,2359.0]}},{"c":8591,"n":"Santa Rosa US","d":5,"f":{"s":[1436.77,0.0,20.51,0.21,301.72,322.23,1759.0],"in":[1676.71,0.0,20.19,0.21,352.11,372.29,2049.0],"d5":[1658.4,147.32,31.01,0.21,348.26,526.6,2185.0],"id":[1806.67,142.86,30.07,0.21,379.4,552.33,2359.0]}},{"c":8460,"n":"San Martín de Los Andes","d":5,"f":{"s":[1510.84,0.0,20.54,0.21,303.61,324.16,1835.0],"in":[1727.34,0.0,20.54,0.21,347.12,367.66,2095.0],"d5":[1703.75,159.27,33.52,0.21,342.46,535.25,2239.0],"id":[2021.86,157.67,33.19,0.21,406.28,597.14,2619.0]}},{"c":6785,"n":"Neuquén","d":5,"f":{"s":[1505.85,0.0,20.54,0.21,302.6,323.15,1829.0],"in":[1710.71,0.0,20.54,0.21,343.74,364.29,2075.0],"d5":[1695.49,159.27,33.52,0.21,340.72,533.51,2229.0],"id":[2038.39,157.67,33.19,0.21,409.75,600.61,2639.0]}},{"c":9954,"n":"Zapala","d":5,"f":{"s":[1441.7,0.0,20.54,0.21,302.76,323.3,1765.0],"in":[1648.31,0.0,20.54,0.21,346.15,366.69,2015.0],"d5":[1633.23,159.27,33.52,0.21,342.98,535.77,2169.0],"id":[1965.4,157.67,33.19,0.21,412.73,603.6,2569.0]}}];var VIGENCIA="22/09/2026";
-var FC={s:["Super","#2d6a4f","#b7e4c7"],"in":["Infinia Naftas","#1d3557","#a8dadc"],d5:["D500","#6b2c0f","#f4d6a0"],id:["Infinia Diesel","#3d0c11","#e8c4c8"]};
+var FC={s:["Super","fuel-super"],in:["Infinia","fuel-infinia"],d5:["Diesel 500","fuel-d500"],id:["Infinia Diesel","fuel-idiesel"]};
 function fmt(n){return n.toLocaleString("es-AR",{minimumFractionDigits:2,maximumFractionDigits:2});}
 function fmtI(n){return n.toLocaleString("es-AR",{minimumFractionDigits:0,maximumFractionDigits:0});}
 function getCode(){var p=new URLSearchParams(location.search);return p.get("eess")||p.get("EESS")||null;}
-function renderStation(s){var tb=document.getElementById("topbar");tb.innerHTML='<a class="back-btn" onclick="location.href=location.pathname">&larr; Volver</a><div style="flex:1;margin-left:8px"><div class="tit">Automovil Club Argentino</div><div class="sub">Transparencia Fiscal</div></div>';var h='<div class="station-hdr"><div class="station-name">EESS '+s.n+'</div><div class="station-meta">Centro ACA '+s.c+' &mdash; Divisional '+s.d+'</div><div class="vig">Vigencia: '+VIGENCIA+'</div></div><div class="content">';var keys=["s","in","d5","id"];for(var ki=0;ki<keys.length;ki++){var k=keys[ki];var v=s.f[k];if(!v)continue;var pn=v[0],icl=v[1],idc=v[2],aliq=v[3],iva=v[4],ti=v[5],pf=v[6];if(pf===0)continue;var info=FC[k];var label=info[0],accent=info[1],light=info[2];var pctI=(ti/pf*100),pctN=100-pctI;h+='<div class="fuel-card"><div class="fuel-hdr" style="background:'+accent+'"><span class="fuel-nm">'+label+'</span><span class="fuel-pr">$'+fmtI(pf)+'</span></div><div class="fuel-body"><div class="bar-c"><div class="bar-s" style="width:'+pctN.toFixed(1)+'%;background:'+accent+'"></div><div class="bar-s" style="width:'+pctI.toFixed(1)+'%;background:'+light+'"></div></div><div class="bar-l"><span style="color:'+accent+'">Precio base '+pctN.toFixed(1)+'%</span><span>Impuestos '+pctI.toFixed(1)+'%</span></div><table><tr class="rb"><td>Precio neto de impuestos</td><td class="v">$'+fmt(pn)+'</td></tr><tr><td>ICL <span class="sb">(Imp. s/ Comb. Liquidos)</span></td><td class="v">$'+fmt(icl)+'</td></tr><tr><td>IDC <span class="sb">(Imp. al Dioxido de Carbono)</span></td><td class="v">$'+fmt(idc)+'</td></tr><tr><td>IVA <span class="sb">('+Math.round(aliq*100)+'%)</span></td><td class="v">$'+fmt(iva)+'</td></tr><tr class="rti"><td>Total Impuestos Nacionales</td><td class="v">$'+fmt(ti)+'</td></tr><tr class="rf"><td>Precio Final</td><td class="v">$'+fmtI(pf)+'</td></tr></table></div></div>';}h+='</div><div class="legal">Res. SE 1/2025 &mdash; Los precios incluyen impuestos nacionales (ICL, IDC, IVA). No incluye tasas municipales ni impuestos provinciales.</div><div class="footer">Automovil Club Argentino &mdash; <a href="https://www.aca.org.ar">aca.org.ar</a></div>';document.getElementById("app").innerHTML=h;}
-function renderLanding(){var tb=document.getElementById("topbar");tb.innerHTML='<div class="logo">ACA</div><div><div class="tit">Automovil Club Argentino</div><div class="sub">Transparencia Fiscal &mdash; Divisional 5 &middot; Patagonia Norte</div></div><div class="spacer"></div><div class="btn-group"><button class="action-btn btn-update" onclick="document.getElementById(\'fileInput\').click()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15"><path d="M21 12a9 9 0 0 1-15.36 6.36"/><path d="M3 12a9 9 0 0 1 15.36-6.36"/><path d="m15 6 3-3 3 3"/><path d="m6 18-3 3-3-3"/></svg>Actualizar</button><button class="action-btn btn-qr" onclick="openQRPanel()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="3" height="3"/><path d="M21 14h-3v3"/><path d="M21 21h-3v-3"/></svg>Generar QR</button></div>';var sorted=D.slice().sort(function(a,b){return a.n.localeCompare(b.n);});var h='<div class="landing"><div class="div-badge">Divisional 5 &mdash; Patagonia Norte &middot; '+D.length+' estaciones</div><div class="search-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><input type="text" id="srcInput" placeholder="Buscar estacion..." autocomplete="off"></div><ul class="slist">';for(var i=0;i<sorted.length;i++){var s=sorted[i];h+='<li data-name="'+s.n.toLowerCase()+' '+s.c+'"><a href="?eess='+s.c+'"><div><div class="sn">'+s.n+'</div><div class="sc">Centro '+s.c+'</div></div><span class="arrow">&rsaquo;</span></a></li>';}h+='</ul></div>';document.getElementById("app").innerHTML=h;document.getElementById("srcInput").addEventListener("input",function(){var q=this.value.toLowerCase().trim();var items=document.querySelectorAll(".slist li");for(var j=0;j<items.length;j++){items[j].style.display=items[j].getAttribute("data-name").indexOf(q)>=0?"":"none";}});}
+
+function renderStation(s){
+  var tb=document.getElementById("topbar");
+  tb.innerHTML='<a class="back-btn" onclick="location.href=location.pathname">&larr; Volver</a><div class="logo">ACA</div><div class="hsubtitle">Regimen de transparencia fiscal al consumidor</div><div class="hdate" id="fechaConsulta2"></div>';
+  var h='<div class="station-bar"><div class="sname">EESS '+s.n+'</div><div class="smeta">Centro ACA '+s.c+' &mdash; Vigencia: '+VIGENCIA+'</div></div><div class="cards">';
+  var keys=["in","id","s","d5"];
+  for(var ki=0;ki<keys.length;ki++){
+    var k=keys[ki];var v=s.f[k];if(!v)continue;
+    var pn=v[0],icl=v[1],idc=v[2],aliq=v[3],iva=v[4],ti=v[5],pf=v[6];
+    if(pf===0)continue;
+    var info=FC[k];var label=info[0],cls=info[1];
+    h+='<div class="fuel-card '+cls+'"><div class="fuel-sidebar"><span class="fuel-label">'+label+'</span></div><div class="fuel-content">'
+      +'<div class="row-pvp"><span class="label">Precio de venta al p\u00fablico</span><div class="value-box"><span class="value">$ '+fmtI(pf)+'</span></div></div>'
+      +'<div class="detail-grid">'
+      +'<span class="dl">Precio sin impuestos nacionales</span><span class="dv">$ '+fmt(pn)+'</span>'
+      +'<span class="dl sub">ICL (Imp. s/ Comb. L\u00edquidos)</span><span class="dv">$ '+fmt(icl)+'</span>'
+      +'<span class="dl sub">IDC (Imp. al Di\u00f3xido de Carbono)</span><span class="dv">$ '+fmt(idc)+'</span>'
+      +'<span class="dl sub">IVA ('+Math.round(aliq*100)+'%)</span><span class="dv">$ '+fmt(iva)+'</span>'
+      +'<span class="dl total-imp">Total Impuestos Nacionales</span><span class="dv total-imp">$ '+fmt(ti)+'</span>'
+      +'<span class="dl">Valor incluido de Tasa Vial</span><span class="dv">$ 0,00</span>'
+      +'</div></div></div>';
+  }
+  h+='</div><div class="legal">Res. SE 1/2025 &mdash; Los precios incluyen impuestos nacionales (ICL, IDC, IVA). No incluye tasas municipales ni impuestos provinciales.</div><div class="footer">Autom\u00f3vil Club Argentino &mdash; <a href="https://www.aca.org.ar">aca.org.ar</a></div>';
+  document.getElementById("app").innerHTML=h;
+  document.title="Transparencia Fiscal - EESS "+s.n+" - ACA";
+  setFecha("fechaConsulta2");
+}
+
+function renderLanding(){
+  var tb=document.getElementById("topbar");
+  tb.innerHTML='<div class="logo">ACA</div><div class="hsubtitle">Transparencia Fiscal &mdash; Divisional 5 &middot; Patagonia Norte</div><div style="margin-top:10px" class="btn-group"><button class="action-btn btn-update" onclick="document.getElementById(\'fileInput\').click()">Actualizar Precios</button><button class="action-btn btn-qr" onclick="openQRPanel()">Generar QR</button></div>';
+  var sorted=D.slice().sort(function(a,b){return a.n.localeCompare(b.n);});
+  var h='<div class="landing"><div class="div-badge">Divisional 5 &mdash; Patagonia Norte &middot; '+D.length+' estaciones</div><div class="search-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><input type="text" id="srcInput" placeholder="Buscar estacion..." autocomplete="off"></div><ul class="slist">';
+  for(var i=0;i<sorted.length;i++){var s=sorted[i];h+='<li data-name="'+s.n.toLowerCase()+' '+s.c+'"><a href="?eess='+s.c+'"><div><div class="sn">'+s.n+'</div><div class="sc">Centro '+s.c+'</div></div><span class="arrow">&rsaquo;</span></a></li>';}
+  h+='</ul></div>';
+  document.getElementById("app").innerHTML=h;
+  document.getElementById("srcInput").addEventListener("input",function(){var q=this.value.toLowerCase().trim();var items=document.querySelectorAll(".slist li");for(var j=0;j<items.length;j++){items[j].style.display=items[j].getAttribute("data-name").indexOf(q)>=0?"":"none";}});
+}
+
+function setFecha(id){var el=document.getElementById(id);if(!el)return;var now=new Date();el.textContent="Fecha de la consulta: "+now.toLocaleDateString("es-AR")+" "+now.toLocaleTimeString("es-AR",{hour:"2-digit",minute:"2-digit",second:"2-digit"});}
+
 function openQRPanel(){var base=location.origin+location.pathname;document.getElementById("qrBaseInfo").textContent="URL: "+base;var overlay=document.getElementById("qrOverlay");var grid=document.getElementById("qrGrid");overlay.classList.add("open");grid.innerHTML='<div style="grid-column:1/-1;text-align:center;padding:40px;color:#666">Generando '+D.length+' codigos QR...</div>';var sorted=D.slice().sort(function(a,b){return a.n.localeCompare(b.n);});setTimeout(function(){grid.innerHTML="";for(var i=0;i<sorted.length;i++){var s=sorted[i];var url=base+"?eess="+s.c;var item=document.createElement("div");item.className="qr-item";var qrDiv=document.createElement("div");item.appendChild(qrDiv);var nm=document.createElement("div");nm.className="qr-name";nm.textContent=s.n;item.appendChild(nm);var cd=document.createElement("div");cd.className="qr-code";cd.textContent="Centro "+s.c;item.appendChild(cd);grid.appendChild(item);new QRCode(qrDiv,{text:url,width:180,height:180,colorDark:"#002b5c",colorLight:"#ffffff",correctLevel:QRCode.CorrectLevel.H});}},150);}
 function closeQRPanel(){document.getElementById("qrOverlay").classList.remove("open");document.getElementById("qrGrid").innerHTML="";}
-function setStatus(type,msg){document.getElementById("statusArea").innerHTML='<div style="max-width:520px;margin:16px auto 0;padding:14px 18px;border-radius:10px;font-size:13px;line-height:1.5;background:'+(type==="ok"?"#e8f4e8;color:#1a6b1a":type==="err"?"#fce8e8;color:#8b0000":"#e8f0fc;color:#1d3557")+'">'+msg+'</div>';}
+function setStatus(type,msg){document.getElementById("statusArea").innerHTML='<div class="status-banner" style="background:'+(type==="ok"?"#e8f4e8;color:#1a6b1a":type==="err"?"#fce8e8;color:#8b0000":"#e8f0fc;color:#1d3557")+'">'+msg+'</div>';}
 function r2(n){return Math.round((parseFloat(n)||0)*100)/100;}
-document.getElementById("fileInput").addEventListener("change",function(){if(!this.files[0])return;var file=this.files[0];setStatus("loading","&#9203; Procesando <strong>"+file.name+"</strong>...");var vig=VIGENCIA;var m=file.name.match(/Vigencia[\s_\-]+(\d{1,2})[._](\d{1,2})[._](\d{4})/i);if(m)vig=m[1].padStart(2,"0")+"/"+m[2].padStart(2,"0")+"/"+m[3];var m2=file.name.match(/Vigencia[\s_]+(\d{1,2})[\s_]+(\d{1,2})[\s_]+(\d{4})/i);if(m2)vig=m2[1].padStart(2,"0")+"/"+m2[2].padStart(2,"0")+"/"+m2[3];var reader=new FileReader();reader.onload=function(e){try{var data=new Uint8Array(e.target.result);var wb=XLSX.read(data,{type:"array"});var ws=wb.Sheets[wb.SheetNames[0]];var rows=XLSX.utils.sheet_to_json(ws,{header:1,defval:null});var ns=[];for(var i=2;i<rows.length;i++){var r=rows[i];if(!r||!r[0]||!r[1])continue;var code=parseInt(r[0]);if(isNaN(code))continue;var div=parseInt(r[2])||0;if(div!==THIS_DIV)continue;var fuels={};var fmap=[["s",4],["in",12],["d5",20],["id",28]];for(var j=0;j<fmap.length;j++){var key=fmap[j][0],col=fmap[j][1];try{fuels[key]=[r2(r[col]),r2(r[col+1]),r2(r[col+2]),parseFloat(r[col+3])||0,r2(r[col+4]),r2(r[col+5]),r2(r[col+6])];}catch(ex){}}ns.push({c:code,n:String(r[1]).trim(),d:div,f:fuels});}if(ns.length<1){setStatus("err","&#10060; No se encontraron estaciones.");return;}D=ns;VIGENCIA=vig;renderLanding();setStatus("ok","&#9989; <strong>"+ns.length+" estaciones</strong> actualizadas &mdash; Vigencia: <strong>"+vig+"</strong>");}catch(ex){setStatus("err","&#10060; Error: "+ex.message);}};reader.readAsArrayBuffer(file);this.value="";});
-var code=getCode();if(code){var found=null;for(var i=0;i<D.length;i++){if(String(D[i].c)===String(code)){found=D[i];break;}}if(found)renderStation(found);else document.getElementById("app").innerHTML='<div style="text-align:center;padding:40px;color:#999">Estacion no encontrada</div>';}else{renderLanding();}
+document.getElementById("fileInput").addEventListener("change",function(){if(!this.files[0])return;var file=this.files[0];setStatus("loading","&#9203; Procesando <strong>"+file.name+"</strong>...");var vig=VIGENCIA;var m=file.name.match(/Vigencia[\s_\-]+(\d{1,2})[._](\d{1,2})[._](\d{4})/i);if(m)vig=m[1].padStart(2,"0")+"/"+m[2].padStart(2,"0")+"/"+m[3];var reader=new FileReader();reader.onload=function(e){try{var data=new Uint8Array(e.target.result);var wb=XLSX.read(data,{type:"array"});var ws=wb.Sheets[wb.SheetNames[0]];var rows=XLSX.utils.sheet_to_json(ws,{header:1,defval:null});var ns=[];for(var i=2;i<rows.length;i++){var r=rows[i];if(!r||!r[0]||!r[1])continue;var code=parseInt(r[0]);if(isNaN(code))continue;var div=parseInt(r[2])||0;if(div!==THIS_DIV)continue;var fuels={};var fmap=[["s",4],["in",12],["d5",20],["id",28]];for(var j=0;j<fmap.length;j++){var key=fmap[j][0],col=fmap[j][1];try{fuels[key]=[r2(r[col]),r2(r[col+1]),r2(r[col+2]),parseFloat(r[col+3])||0,r2(r[col+4]),r2(r[col+5]),r2(r[col+6])];}catch(ex){}}ns.push({c:code,n:String(r[1]).trim(),d:div,f:fuels});}if(ns.length<1){setStatus("err","&#10060; No se encontraron estaciones.");return;}D=ns;VIGENCIA=vig;renderLanding();setStatus("ok","&#9989; <strong>"+ns.length+" estaciones</strong> actualizadas &mdash; Vigencia: <strong>"+vig+"</strong>");}catch(ex){setStatus("err","&#10060; Error: "+ex.message);}};reader.readAsArrayBuffer(file);this.value="";});
+
+var code=getCode();
+if(code){var found=null;for(var i=0;i<D.length;i++){if(String(D[i].c)===String(code)){found=D[i];break;}}
+  if(found)renderStation(found);else document.getElementById("app").innerHTML='<div style="text-align:center;padding:40px;color:#999">Estacion no encontrada</div>';
+}else{renderLanding();}
+setFecha("fechaConsulta");
 </script></body></html>
