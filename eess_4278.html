@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Transparencia Fiscal - EESS Ushuaia - ACA</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',system-ui,sans-serif;background:#f0f2f5;min-height:100vh}
+.header{background:#002b5c;color:#fff;padding:20px;text-align:center}
+.header .logo{font-size:28px;font-weight:900;letter-spacing:.08em;margin-bottom:6px}
+.header .hsubtitle{font-size:13px;opacity:.85}
+.header .hdate{font-size:11px;opacity:.6;margin-top:4px}
+.station-bar{background:#fff;padding:14px 20px;border-bottom:2px solid #002b5c;text-align:center}
+.station-bar .sname{font-size:17px;font-weight:700;color:#002b5c}
+.station-bar .smeta{font-size:12px;color:#888;margin-top:2px}
+.cards{padding:16px;max-width:440px;margin:0 auto;display:flex;flex-direction:column;gap:16px}
+.fuel-card{display:flex;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.1)}
+.fuel-sidebar{width:56px;flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.fuel-sidebar .fuel-label{writing-mode:vertical-rl;text-orientation:mixed;transform:rotate(180deg);font-size:15px;font-weight:900;color:#fff;letter-spacing:.06em;text-transform:uppercase}
+.fuel-content{flex:1;background:#fff;padding:14px 16px;display:flex;flex-direction:column;gap:8px}
+.row-pvp .label{font-size:10px;font-weight:700;color:#555;text-transform:uppercase;letter-spacing:.04em}
+.row-pvp .value-box{padding:10px 14px;border-radius:6px;text-align:center;margin-top:2px}
+.row-pvp .value{font-size:26px;font-weight:800}
+.detail-grid{display:grid;grid-template-columns:1fr auto;font-size:12px}
+.detail-grid .dl{padding:5px 0;border-bottom:1px solid #f0f0f0;color:#444}
+.detail-grid .dv{padding:5px 0;border-bottom:1px solid #f0f0f0;text-align:right;font-weight:600;color:#333}
+.detail-grid .dl.sub{color:#888;padding-left:8px;font-size:11px}
+.detail-grid .dl.total-imp{font-weight:700;border-top:2px solid #ddd;padding-top:8px;color:#8b0000}
+.detail-grid .dv.total-imp{font-weight:700;border-top:2px solid #ddd;padding-top:8px;color:#8b0000}
+.fuel-super .fuel-sidebar{background:linear-gradient(180deg,#1a7a6a,#23a88a)}
+.fuel-super .row-pvp .value-box{background:#e6f5f0;color:#1a7a6a}
+.fuel-infinia .fuel-sidebar{background:linear-gradient(180deg,#0d3b66,#1a6aaa)}
+.fuel-infinia .row-pvp .value-box{background:#e0eef8;color:#0d3b66}
+.fuel-d500 .fuel-sidebar{background:linear-gradient(180deg,#1b3a5c,#2c6faa)}
+.fuel-d500 .row-pvp .value-box{background:#e0eaf4;color:#1b3a5c}
+.fuel-idiesel .fuel-sidebar{background:linear-gradient(180deg,#4a5d1e,#6d8a2e)}
+.fuel-idiesel .row-pvp .value-box{background:#eef3e0;color:#4a5d1e}
+.legal{text-align:center;padding:16px 20px;font-size:9px;color:#aaa;line-height:1.5}
+.footer{text-align:center;padding:10px 20px 24px;font-size:11px;color:#888}
+.footer a{color:#002b5c;text-decoration:none;font-weight:600}
+</style>
+</head>
+<body>
+<div class="header">
+<div class="logo">ACA</div>
+<div class="hsubtitle">Regimen de transparencia fiscal al consumidor</div>
+<div class="hdate" id="fc"></div>
+</div>
+<div class="station-bar">
+<div class="sname">EESS Ushuaia</div>
+<div class="smeta">Centro ACA 4278 &mdash; Vigencia: 23/09/2026</div>
+</div>
+<div class="cards">
+<div class="fuel-card fuel-infinia"><div class="fuel-sidebar"><span class="fuel-label">Infinia</span></div><div class="fuel-content">
+<div class="row-pvp"><span class="label">PRECIO DE VENTA AL PUBLICO</span><div class="value-box"><span class="value">$ 20</span></div></div>
+<div class="detail-grid">
+<span class="dl">Precio sin impuestos nacionales</span><span class="dv">$ 0.00</span>
+<span class="dl sub">ICL (Imp. s/ Comb. Liquidos)</span><span class="dv">$ 1,868.81</span>
+<span class="dl sub">IDC (Imp. al Dioxido de Carbono)</span><span class="dv">$ 0.00</span>
+<span class="dl sub">IVA (2018%)</span><span class="dv">$ 0.00</span>
+<span class="dl total-imp">Total Impuestos Nacionales</span><span class="dv total-imp">$ 0.00</span>
+<span class="dl">Valor incluido de Tasa Vial</span><span class="dv">$ 0,00</span>
+</div></div></div>
+</div>
+<div class="legal">Res. SE 1/2025 &mdash; Los precios incluyen impuestos nacionales (ICL, IDC, IVA). No incluye tasas municipales ni impuestos provinciales.</div>
+<div class="footer">Automovil Club Argentino &mdash; <a href="https://www.aca.org.ar">aca.org.ar</a></div>
+<script>var n=new Date();document.getElementById("fc").textContent="Fecha de la consulta: "+n.toLocaleDateString("es-AR")+" "+n.toLocaleTimeString("es-AR",{hour:"2-digit",minute:"2-digit",second:"2-digit"});</script>
+</body>
+</html>
