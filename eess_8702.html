@@ -50,31 +50,31 @@ body{font-family:'Inter',system-ui,sans-serif;background:#f0f2f5;min-height:100v
 </div>
 <div class="station-bar">
 <div class="sname">EESS San Sebastián</div>
-<div class="smeta">Centro ACA 8702 &mdash; Vigencia: 23/09/2026</div>
+<div class="smeta">Centro ACA 8702 &mdash; Vigencia: 24/09/2026</div>
 </div>
 <div class="cards">
 <div class="fuel-card fuel-super"><div class="fuel-sidebar"><span class="fuel-label">Super</span></div><div class="fuel-content">
-<div class="row-pvp"><span class="label">PRECIO DE VENTA AL PUBLICO</span><div class="value-box"><span class="value">$ 1.794,00</span></div></div>
+<div class="row-pvp"><span class="label">PRECIO DE VENTA AL PUBLICO</span><div class="value-box"><span class="value">$ 1.811,00</span></div></div>
 <div class="detail-grid">
-<span class="dl">Precio sin impuestos nacionales</span><span class="dv">$ 1.773,8015</span>
+<span class="dl">Precio sin impuestos nacionales</span><span class="dv">$ 1.790,8015</span>
 <span class="dl sub">ICL (Imp. s/ Comb. Liquidos)</span><span class="dv">$ 0,00</span>
 <span class="dl sub">IDC (Imp. al Dioxido de Carbono)</span><span class="dv">$ 20,1985</span>
 <span class="dl sub">IVA (0%)</span><span class="dv">$ 0,00</span>
 <span class="dl total-imp">Total Impuestos Nacionales</span><span class="dv total-imp">$ 20,1985</span>
 <span class="dl">Valor incluido de Tasa Vial</span><span class="dv">$ 0,00</span>
 </div></div></div><div class="fuel-card fuel-d500"><div class="fuel-sidebar"><span class="fuel-label">Diesel 500</span></div><div class="fuel-content">
-<div class="row-pvp"><span class="label">PRECIO DE VENTA AL PUBLICO</span><div class="value-box"><span class="value">$ 1.989,00</span></div></div>
+<div class="row-pvp"><span class="label">PRECIO DE VENTA AL PUBLICO</span><div class="value-box"><span class="value">$ 1.985,00</span></div></div>
 <div class="detail-grid">
-<span class="dl">Precio sin impuestos nacionales</span><span class="dv">$ 1.796,21</span>
+<span class="dl">Precio sin impuestos nacionales</span><span class="dv">$ 1.792,21</span>
 <span class="dl sub">ICL (Imp. s/ Comb. Liquidos)</span><span class="dv">$ 159,266</span>
 <span class="dl sub">IDC (Imp. al Dioxido de Carbono)</span><span class="dv">$ 33,524</span>
 <span class="dl sub">IVA (0%)</span><span class="dv">$ 0,00</span>
 <span class="dl total-imp">Total Impuestos Nacionales</span><span class="dv total-imp">$ 192,79</span>
 <span class="dl">Valor incluido de Tasa Vial</span><span class="dv">$ 0,00</span>
 </div></div></div><div class="fuel-card fuel-idiesel"><div class="fuel-sidebar"><span class="fuel-label">Infinia Diesel</span></div><div class="fuel-content">
-<div class="row-pvp"><span class="label">PRECIO DE VENTA AL PUBLICO</span><div class="value-box"><span class="value">$ 2.089,00</span></div></div>
+<div class="row-pvp"><span class="label">PRECIO DE VENTA AL PUBLICO</span><div class="value-box"><span class="value">$ 2.085,00</span></div></div>
 <div class="detail-grid">
-<span class="dl">Precio sin impuestos nacionales</span><span class="dv">$ 1.896,4028</span>
+<span class="dl">Precio sin impuestos nacionales</span><span class="dv">$ 1.892,4028</span>
 <span class="dl sub">ICL (Imp. s/ Comb. Liquidos)</span><span class="dv">$ 159,1067</span>
 <span class="dl sub">IDC (Imp. al Dioxido de Carbono)</span><span class="dv">$ 33,4905</span>
 <span class="dl sub">IVA (0%)</span><span class="dv">$ 0,00</span>
@@ -84,6 +84,29 @@ body{font-family:'Inter',system-ui,sans-serif;background:#f0f2f5;min-height:100v
 </div>
 <div class="legal">Res. SE 1/2025 &mdash; Ley 27.743 &mdash; Los precios incluyen impuestos nacionales (ICL, IDC, IVA). No incluye tasas municipales ni impuestos provinciales.</div>
 <div class="footer">Automovil Club Argentino &mdash; <a href="https://www.aca.org.ar">aca.org.ar</a></div>
-<script>var n=new Date();document.getElementById("fc").textContent="Fecha de la consulta: "+n.toLocaleDateString("es-AR")+" "+n.toLocaleTimeString("es-AR",{hour:"2-digit",minute:"2-digit",second:"2-digit"});</script>
+<script>
+var n=new Date();
+document.getElementById("fc").textContent="Fecha de la consulta: "+n.toLocaleDateString("es-AR")+" "+n.toLocaleTimeString("es-AR",{hour:"2-digit",minute:"2-digit",second:"2-digit"});
+(function(){
+  var vf="2026-09-24";
+  var vh="00:00";
+  if(!vf)return;
+  var p=vf.split("-");
+  var h=vh.split(":");
+  var objetivo=new Date(parseInt(p[0]),parseInt(p[1])-1,parseInt(p[2]),parseInt(h[0]),parseInt(h[1]),0);
+  if(n<objetivo){
+    var cards=document.querySelector(".cards");
+    var legal=document.querySelector(".legal");
+    if(cards)cards.style.display="none";
+    if(legal)legal.style.display="none";
+    var aviso=document.createElement("div");
+    aviso.style.cssText="max-width:440px;margin:40px auto;text-align:center;padding:30px 20px;background:#fff;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.1)";
+    var fechaTexto=p[2]+"/"+p[1]+"/"+p[0];
+    var horaTexto=(vh!=="00:00")?" a las "+vh:"";
+    aviso.innerHTML="<div style="font-size:16px;font-weight:700;color:#002b5c;margin-bottom:8px">Precios proximos</div><div style="font-size:14px;color:#666">Los nuevos precios entran en vigencia el<br><strong>"+fechaTexto+horaTexto+"</strong></div>";
+    cards.parentNode.insertBefore(aviso,cards);
+  }
+})();
+</script>
 </body>
 </html>
