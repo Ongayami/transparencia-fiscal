@@ -29,14 +29,14 @@ body{font-family:'Inter',system-ui,sans-serif;background:#f0f2f5;min-height:100v
 .detail-grid .dl.sub{color:#888;padding-left:8px;font-size:11px}
 .detail-grid .dl.total-imp{font-weight:700;border-top:2px solid #ddd;padding-top:8px;color:#8b0000}
 .detail-grid .dv.total-imp{font-weight:700;border-top:2px solid #ddd;padding-top:8px;color:#8b0000}
-.fuel-super .fuel-sidebar{background:linear-gradient(180deg,#1a7a6a,#23a88a)}
-.fuel-super .row-pvp .value-box{background:#e6f5f0;color:#1a7a6a}
-.fuel-infinia .fuel-sidebar{background:linear-gradient(180deg,#0d3b66,#1a6aaa)}
-.fuel-infinia .row-pvp .value-box{background:#e0eef8;color:#0d3b66}
-.fuel-d500 .fuel-sidebar{background:linear-gradient(180deg,#1b3a5c,#2c6faa)}
-.fuel-d500 .row-pvp .value-box{background:#e0eaf4;color:#1b3a5c}
-.fuel-idiesel .fuel-sidebar{background:linear-gradient(180deg,#4a5d1e,#6d8a2e)}
-.fuel-idiesel .row-pvp .value-box{background:#eef3e0;color:#4a5d1e}
+.fuel-super .fuel-sidebar{background:linear-gradient(180deg,#2a6cb6,#4a9ae0)}
+.fuel-super .row-pvp .value-box{background:#e8f0fa;color:#2a6cb6}
+.fuel-infinia .fuel-sidebar{background:linear-gradient(180deg,#0a2a52,#14478a)}
+.fuel-infinia .row-pvp .value-box{background:#dce8f5;color:#0a2a52}
+.fuel-d500 .fuel-sidebar{background:linear-gradient(180deg,#4a9a5a,#6dc47e)}
+.fuel-d500 .row-pvp .value-box{background:#e8f5ea;color:#3a8548}
+.fuel-idiesel .fuel-sidebar{background:linear-gradient(180deg,#1e6b35,#2d8f4a)}
+.fuel-idiesel .row-pvp .value-box{background:#e0f0e4;color:#1e6b35}
 .legal{text-align:center;padding:16px 20px;font-size:9px;color:#aaa;line-height:1.5}
 .footer{text-align:center;padding:10px 20px 24px;font-size:11px;color:#888}
 .footer a{color:#002b5c;text-decoration:none;font-weight:600}
@@ -50,10 +50,19 @@ body{font-family:'Inter',system-ui,sans-serif;background:#f0f2f5;min-height:100v
 </div>
 <div class="station-bar">
 <div class="sname">EESS Delta</div>
-<div class="smeta">Centro ACA 4227 &mdash; Vigencia: 23/09/2026</div>
+<div class="smeta">Centro ACA 4227 &mdash; Vigencia: 24/09/2026</div>
 </div>
 <div class="cards">
-<div class="fuel-card fuel-infinia"><div class="fuel-sidebar"><span class="fuel-label">Infinia</span></div><div class="fuel-content">
+<div class="fuel-card fuel-super"><div class="fuel-sidebar"><span class="fuel-label">Super</span></div><div class="fuel-content">
+<div class="row-pvp"><span class="label">PRECIO DE VENTA AL PUBLICO</span><div class="value-box"><span class="value">$ 2.135,00</span></div></div>
+<div class="detail-grid">
+<span class="dl">Precio sin impuestos nacionales</span><span class="dv">$ 1.460,542</span>
+<span class="dl sub">ICL (Imp. s/ Comb. Liquidos)</span><span class="dv">$ 329,5476</span>
+<span class="dl sub">IDC (Imp. al Dioxido de Carbono)</span><span class="dv">$ 20,1867</span>
+<span class="dl sub">IVA (21%)</span><span class="dv">$ 306,7138</span>
+<span class="dl total-imp">Total Impuestos Nacionales</span><span class="dv total-imp">$ 656,448</span>
+<span class="dl">Valor incluido de Tasa Vial</span><span class="dv">$ 18,01</span>
+</div></div></div><div class="fuel-card fuel-infinia"><div class="fuel-sidebar"><span class="fuel-label">Infinia</span></div><div class="fuel-content">
 <div class="row-pvp"><span class="label">PRECIO DE VENTA AL PUBLICO</span><div class="value-box"><span class="value">$ 2.339,00</span></div></div>
 <div class="detail-grid">
 <span class="dl">Precio sin impuestos nacionales</span><span class="dv">$ 1.627,6825</span>
@@ -62,6 +71,15 @@ body{font-family:'Inter',system-ui,sans-serif;background:#f0f2f5;min-height:100v
 <span class="dl sub">IVA (21%)</span><span class="dv">$ 341,8133</span>
 <span class="dl total-imp">Total Impuestos Nacionales</span><span class="dv total-imp">$ 691,5475</span>
 <span class="dl">Valor incluido de Tasa Vial</span><span class="dv">$ 19,77</span>
+</div></div></div><div class="fuel-card fuel-d500"><div class="fuel-sidebar"><span class="fuel-label">Diesel 500</span></div><div class="fuel-content">
+<div class="row-pvp"><span class="label">PRECIO DE VENTA AL PUBLICO</span><div class="value-box"><span class="value">$ 2.149,00</span></div></div>
+<div class="detail-grid">
+<span class="dl">Precio sin impuestos nacionales</span><span class="dv">$ 1.511,2342</span>
+<span class="dl sub">ICL (Imp. s/ Comb. Liquidos)</span><span class="dv">$ 272,9564</span>
+<span class="dl sub">IDC (Imp. al Dioxido de Carbono)</span><span class="dv">$ 31,1103</span>
+<span class="dl sub">IVA (21%)</span><span class="dv">$ 317,3592</span>
+<span class="dl total-imp">Total Impuestos Nacionales</span><span class="dv total-imp">$ 621,4258</span>
+<span class="dl">Valor incluido de Tasa Vial</span><span class="dv">$ 16,34</span>
 </div></div></div><div class="fuel-card fuel-idiesel"><div class="fuel-sidebar"><span class="fuel-label">Infinia Diesel</span></div><div class="fuel-content">
 <div class="row-pvp"><span class="label">PRECIO DE VENTA AL PUBLICO</span><div class="value-box"><span class="value">$ 2.389,00</span></div></div>
 <div class="detail-grid">
@@ -71,24 +89,6 @@ body{font-family:'Inter',system-ui,sans-serif;background:#f0f2f5;min-height:100v
 <span class="dl sub">IVA (21%)</span><span class="dv">$ 360,1102</span>
 <span class="dl total-imp">Total Impuestos Nacionales</span><span class="dv total-imp">$ 654,0194</span>
 <span class="dl">Valor incluido de Tasa Vial</span><span class="dv">$ 20,17</span>
-</div></div></div><div class="fuel-card fuel-super"><div class="fuel-sidebar"><span class="fuel-label">Super</span></div><div class="fuel-content">
-<div class="row-pvp"><span class="label">PRECIO DE VENTA AL PUBLICO</span><div class="value-box"><span class="value">$ 2.129,00</span></div></div>
-<div class="detail-grid">
-<span class="dl">Precio sin impuestos nacionales</span><span class="dv">$ 1.455,5833</span>
-<span class="dl sub">ICL (Imp. s/ Comb. Liquidos)</span><span class="dv">$ 329,5476</span>
-<span class="dl sub">IDC (Imp. al Dioxido de Carbono)</span><span class="dv">$ 20,1867</span>
-<span class="dl sub">IVA (21%)</span><span class="dv">$ 305,6725</span>
-<span class="dl total-imp">Total Impuestos Nacionales</span><span class="dv total-imp">$ 655,4067</span>
-<span class="dl">Valor incluido de Tasa Vial</span><span class="dv">$ 18,01</span>
-</div></div></div><div class="fuel-card fuel-d500"><div class="fuel-sidebar"><span class="fuel-label">Diesel 500</span></div><div class="fuel-content">
-<div class="row-pvp"><span class="label">PRECIO DE VENTA AL PUBLICO</span><div class="value-box"><span class="value">$ 2.155,00</span></div></div>
-<div class="detail-grid">
-<span class="dl">Precio sin impuestos nacionales</span><span class="dv">$ 1.516,1929</span>
-<span class="dl sub">ICL (Imp. s/ Comb. Liquidos)</span><span class="dv">$ 272,9564</span>
-<span class="dl sub">IDC (Imp. al Dioxido de Carbono)</span><span class="dv">$ 31,1103</span>
-<span class="dl sub">IVA (21%)</span><span class="dv">$ 318,4005</span>
-<span class="dl total-imp">Total Impuestos Nacionales</span><span class="dv total-imp">$ 622,4671</span>
-<span class="dl">Valor incluido de Tasa Vial</span><span class="dv">$ 16,34</span>
 </div></div></div>
 </div>
 <div class="legal">Res. SE 1/2025 &mdash; Ley 27.743 &mdash; Los precios incluyen impuestos nacionales (ICL, IDC, IVA). No incluye tasas municipales ni impuestos provinciales.</div>
