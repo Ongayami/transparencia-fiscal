@@ -1,85 +1,58 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<html lang="es"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta http-equiv="Cache-Control" content="no-cache">
 <title>Transparencia Fiscal - EESS Acceso Norte II - ACA</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Inter',system-ui,sans-serif;background:#f0f2f5;min-height:100vh}
-.header{background:#002b5c;color:#fff;padding:20px;text-align:center}
-.header .logo{font-size:28px;font-weight:900;letter-spacing:.08em;margin-bottom:6px}
-.header .hsubtitle{font-size:13px;opacity:.85}
-.header .hdate{font-size:11px;opacity:.6;margin-top:4px}
-.station-bar{background:#fff;padding:14px 20px;border-bottom:2px solid #002b5c;text-align:center}
-.station-bar .sname{font-size:17px;font-weight:700;color:#002b5c}
-.station-bar .smeta{font-size:12px;color:#888;margin-top:2px}
-.cards{padding:16px;max-width:440px;margin:0 auto;display:flex;flex-direction:column;gap:16px}
-.fuel-card{display:flex;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.1)}
-.fuel-sidebar{width:56px;flex-shrink:0;display:flex;align-items:center;justify-content:center}
-.fuel-sidebar .fuel-label{writing-mode:vertical-rl;text-orientation:mixed;transform:rotate(180deg);font-size:15px;font-weight:900;color:#fff;letter-spacing:.06em;text-transform:uppercase}
-.fuel-content{flex:1;background:#fff;padding:14px 16px;display:flex;flex-direction:column;gap:8px}
-.row-pvp .label{font-size:10px;font-weight:700;color:#555;text-transform:uppercase;letter-spacing:.04em}
-.row-pvp .value-box{padding:10px 14px;border-radius:6px;text-align:center;margin-top:2px}
-.row-pvp .value{font-size:26px;font-weight:800}
-.detail-grid{display:grid;grid-template-columns:1fr auto;font-size:12px}
-.detail-grid .dl{padding:5px 0;border-bottom:1px solid #f0f0f0;color:#444}
-.detail-grid .dv{padding:5px 0;border-bottom:1px solid #f0f0f0;text-align:right;font-weight:600;color:#333}
-.detail-grid .dl.sub{color:#888;padding-left:8px;font-size:11px}
-.detail-grid .dl.total-imp{font-weight:700;border-top:2px solid #ddd;padding-top:8px;color:#8b0000}
-.detail-grid .dv.total-imp{font-weight:700;border-top:2px solid #ddd;padding-top:8px;color:#8b0000}
-.fuel-super .fuel-sidebar{background:linear-gradient(180deg,#2a6cb6,#4a9ae0)}
-.fuel-super .row-pvp .value-box{background:#e8f0fa;color:#2a6cb6}
-.fuel-infinia .fuel-sidebar{background:linear-gradient(180deg,#0a2a52,#14478a)}
-.fuel-infinia .row-pvp .value-box{background:#dce8f5;color:#0a2a52}
-.fuel-d500 .fuel-sidebar{background:linear-gradient(180deg,#4a9a5a,#6dc47e)}
-.fuel-d500 .row-pvp .value-box{background:#e8f5ea;color:#3a8548}
-.fuel-idiesel .fuel-sidebar{background:linear-gradient(180deg,#1e6b35,#2d8f4a)}
-.fuel-idiesel .row-pvp .value-box{background:#e0f0e4;color:#1e6b35}
-.legal{text-align:center;padding:16px 20px;font-size:9px;color:#aaa;line-height:1.5}
-.footer{text-align:center;padding:10px 20px 24px;font-size:11px;color:#888}
-.footer a{color:#002b5c;text-decoration:none;font-weight:600}
-</style>
-</head>
-<body>
-<div class="header">
-<div class="logo">ACA</div>
-<div class="hsubtitle">Regimen de transparencia fiscal al consumidor</div>
-<div class="hdate" id="fc"></div>
-</div>
-<div class="station-bar">
-<div class="sname">EESS Acceso Norte II</div>
-<div class="smeta">Centro ACA 2411 &mdash; Vigencia: 23/09/2026</div>
-</div>
-<div class="cards">
-
-</div>
-<div class="legal">Res. SE 1/2025 &mdash; Ley 27.743 &mdash; Los precios incluyen impuestos nacionales (ICL, IDC, IVA). No incluye tasas municipales ni impuestos provinciales.</div>
-<div class="footer">Automovil Club Argentino &mdash; <a href="https://www.aca.org.ar">aca.org.ar</a></div>
+.hd{background:#002b5c;color:#fff;padding:20px;text-align:center}
+.hd .lg{font-size:28px;font-weight:900;letter-spacing:.08em;margin-bottom:6px}
+.hd .hs{font-size:13px;opacity:.85}
+.hd .hf{font-size:11px;opacity:.6;margin-top:4px}
+.bar{background:#fff;padding:14px 20px;border-bottom:2px solid #002b5c;text-align:center}
+.bar .sn{font-size:17px;font-weight:700;color:#002b5c}
+.bar .sm{font-size:12px;color:#888;margin-top:2px}
+.cd{padding:16px;max-width:440px;margin:0 auto;display:flex;flex-direction:column;gap:16px}
+.nd{text-align:center;color:#888;font-size:13px;padding:24px}
+.fc{display:flex;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.1)}
+.fs{width:56px;flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.fl{writing-mode:vertical-rl;text-orientation:mixed;transform:rotate(180deg);font-size:15px;font-weight:900;color:#fff;letter-spacing:.06em;text-transform:uppercase}
+.fb{flex:1;background:#fff;padding:14px 16px;display:flex;flex-direction:column;gap:8px}
+.rp .rl{font-size:10px;font-weight:700;color:#555;text-transform:uppercase;letter-spacing:.04em}
+.rp .vb{padding:10px 14px;border-radius:6px;text-align:center;margin-top:2px}
+.rp .vv{font-size:26px;font-weight:800}
+.dg{display:grid;grid-template-columns:1fr auto;font-size:12px}
+.dg .dl{padding:5px 0;border-bottom:1px solid #f0f0f0;color:#444}
+.dg .dv{padding:5px 0;border-bottom:1px solid #f0f0f0;text-align:right;font-weight:600;color:#333}
+.dg .dl.s{color:#888;padding-left:8px;font-size:11px}
+.dg .dl.ti{font-weight:700;border-top:2px solid #ddd;padding-top:8px;color:#8b0000}
+.dg .dv.ti{font-weight:700;border-top:2px solid #ddd;padding-top:8px;color:#8b0000}
+.sb1 .fs{background:linear-gradient(180deg,#2a6cb6,#4a9ae0)}
+.sb1 .rp .vb{background:#e8f0fa;color:#2a6cb6}
+.sb2 .fs{background:linear-gradient(180deg,#0a2a52,#14478a)}
+.sb2 .rp .vb{background:#dce8f5;color:#0a2a52}
+.sb3 .fs{background:linear-gradient(180deg,#4a9a5a,#6dc47e)}
+.sb3 .rp .vb{background:#e8f5ea;color:#3a8548}
+.sb4 .fs{background:linear-gradient(180deg,#1e6b35,#2d8f4a)}
+.sb4 .rp .vb{background:#e0f0e4;color:#1e6b35}
+.lg2{text-align:center;padding:16px 20px;font-size:9px;color:#aaa;line-height:1.5}
+.ft{text-align:center;padding:10px 20px 24px;font-size:11px;color:#888}
+.ft a{color:#002b5c;text-decoration:none;font-weight:600}
+</style></head><body>
+<div class="hd"><div class="lg">ACA</div><div class="hs">Regimen de transparencia fiscal al consumidor</div><div class="hf" id="fc"></div></div>
+<div class="set" data-desde="2026-09-23T00:00:00-03:00"><div class="bar"><div class="sn">EESS Acceso Norte II</div><div class="sm">Centro ACA 2411 &mdash; Vigencia: 23/09/2026</div></div><div class="cd"><div class="nd">Sin precios informados para esta estacion.</div></div></div><div class="set" data-desde="2026-09-24T00:00:00-03:00" style="display:none"><div class="bar"><div class="sn">EESS Acceso Norte II</div><div class="sm">Centro ACA 2411 &mdash; Vigencia: 24/09/2026</div></div><div class="cd"><div class="nd">Sin precios informados para esta estacion.</div></div></div>
+<div class="lg2">Res. SE 1/2025 &mdash; Ley 27.743 &mdash; Los precios incluyen impuestos nacionales (ICL, IDC, IVA). No incluye tasas municipales ni impuestos provinciales.</div>
+<div class="ft">Automovil Club Argentino &mdash; <a href="https://www.aca.org.ar">aca.org.ar</a></div>
 <script>
-var n=new Date();
-document.getElementById("fc").textContent="Fecha de la consulta: "+n.toLocaleDateString("es-AR")+" "+n.toLocaleTimeString("es-AR",{hour:"2-digit",minute:"2-digit",second:"2-digit"});
-(function(){
-  var vf="2026-09-23";
-  var vh="00:00";
-  if(!vf)return;
-  var p=vf.split("-");
-  var h=vh.split(":");
-  var objetivo=new Date(parseInt(p[0]),parseInt(p[1])-1,parseInt(p[2]),parseInt(h[0]),parseInt(h[1]),0);
-  if(n<objetivo){
-    var cards=document.querySelector(".cards");
-    var legal=document.querySelector(".legal");
-    if(cards)cards.style.display="none";
-    if(legal)legal.style.display="none";
-    var aviso=document.createElement("div");
-    aviso.style.cssText="max-width:440px;margin:40px auto;text-align:center;padding:30px 20px;background:#fff;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.1)";
-    var fechaTexto=p[2]+"/"+p[1]+"/"+p[0];
-    var horaTexto=(vh!=="00:00")?" a las "+vh:"";
-    aviso.innerHTML="<div style="font-size:16px;font-weight:700;color:#002b5c;margin-bottom:8px">Precios proximos</div><div style="font-size:14px;color:#666">Los nuevos precios entran en vigencia el<br><strong>"+fechaTexto+horaTexto+"</strong></div>";
-    cards.parentNode.insertBefore(aviso,cards);
-  }
-})();
+function act(){
+  var n=new Date(),s=document.querySelectorAll(".set"),el=s[0];
+  for(var i=0;i<s.length;i++){if(new Date(s[i].getAttribute("data-desde"))<=n)el=s[i];}
+  for(var i=0;i<s.length;i++)s[i].style.display=(s[i]===el)?"":"none";
+  var o={timeZone:"America/Argentina/Buenos_Aires"};
+  document.getElementById("fc").textContent="Fecha de la consulta: "+n.toLocaleDateString("es-AR",o)+" "+n.toLocaleTimeString("es-AR",Object.assign({hour:"2-digit",minute:"2-digit",second:"2-digit"},o));
+}
+act();setInterval(act,1000);
 </script>
-</body>
-</html>
+</body></html>
